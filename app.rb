@@ -8,7 +8,7 @@ require 'app/board'
 require 'app/board_case'
 require 'views/show'
 
-Game.new
+Game.new.perform
+#Board.new.game_state
 
-
-binding.pry
+#binding.pry
