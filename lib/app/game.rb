@@ -23,49 +23,43 @@ class Game
 
     while @board.game_state_variable == false
       @players.each { |item| choose_case(item) }
-
-      if @board.game_state_variable == true
-        puts "Bravo !! Tu as gagné !!"
-      elsif @board.game_nil == false
-        puts "la partie est finie, partie nul!!"
-      end
     end
-
-    #end
-
-    # if @board.game_nil == true
-    #
-    # else
-    #   puts "la partie est finie, partie nul!!"
-    # end
+    puts "la partie est finie, partie nul!!"
   end
 
   def choose_case (player)
     # Classe qui demande à l'utilisateur d'entrer la case qu'il souhaite jouer
       # Retourne le symbole suivant l'utilisateur en cours
-    puts "#{player.name} avec le symbole #{player.symbol} à toi de jouer entre la case que tu souhaites"
-    print "> "
-    @board.write_on_case(gets.chomp.to_s, player.symbol)
-    @board.show_board
-    @board.game_state
+    if @board.game_state_variable == true
+      puts "Bravo #{player.name}!! Tu as gagné !!"
+    else
+      puts "#{player.name} avec le symbole #{player.symbol} à toi de jouer entre la case que tu souhaites"
+      print "> "
+      @board.write_on_case(gets.chomp.to_s, player.symbol)
+      @board.show_board
+      @board.game_state
+    end
   end
 
   def ask_new_game
-    # n = 0
     #  s'occupe de finir la partie si un joueur a gagné et propose aux joueurs de faire une nouvelle partie ensuite.
     #  ????? Faire un apel de game_state depuis board pour afficher l'état du jeux
-    #while n <= 10
-      ask_name
-      puts "Le nom du joueur 1 est #{@players[0].name} et son symbole est #{@players[0].symbol}"
-      puts "Le nom du joueur 2 est #{@players[1].name} et son symbole est #{@players[1].symbol}"
-      @board.show_board
-      select_player
 
-    #    n += 1
-    # end
+    puts "Tape rejouer si tu veux 'rejouer' au morpion ! "
+    print "> "
+    new_game = gets.chomp.to_s
+
+    if new_game == "rejouer"
+      self.perform
+    end
   end
 
   def perform
+    ask_name
+    puts "Le nom du joueur 1 est #{@players[0].name} et son symbole est #{@players[0].symbol}"
+    puts "Le nom du joueur 2 est #{@players[1].name} et son symbole est #{@players[1].symbol}"
+    @board.show_board
+    select_player
     ask_new_game
   end
 

@@ -9,6 +9,3 @@ require 'app/board_case'
 require 'views/show'
 
 Game.new.perform
-#Board.new.game_state
-
-binding.pry

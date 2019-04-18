@@ -13,7 +13,7 @@ class Board
     @B3 = BoardCase.new("b3", " ")
     @C1 = BoardCase.new("c1", " ")
     @C2 = BoardCase.new("c2", " ")
-    @C3 = BoardCase.new("c2", " ")
+    @C3 = BoardCase.new("c3", " ")
 
     @game_state_variable = false
 
@@ -79,11 +79,12 @@ class Board
   # Cette fonction devra être dans la classe Show
   def show_board
     # affiche le plateau vide à l'init et récupère les variables de board pour les afficher
-    puts "   #{@A1.content} | #{@A2.content} | #{@A3.content}"
+    puts "   1   2  3"
+    puts " a #{@A1.content} | #{@A2.content} | #{@A3.content}"
     puts "   ---------"
-    puts "   #{@B1.content} | #{@B2.content} | #{@B3.content}"
+    puts " b #{@B1.content} | #{@B2.content} | #{@B3.content}"
     puts "   ---------"
-    puts "   #{@C1.content} | #{@C2.content} | #{@C3.content}"
+    puts " c #{@C1.content} | #{@C2.content} | #{@C3.content}"
 
   end
 
