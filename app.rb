@@ -11,4 +11,4 @@ require 'views/show'
 Game.new.perform
 #Board.new.game_state
 
-#binding.pry
+binding.pry
